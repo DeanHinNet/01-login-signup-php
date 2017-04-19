@@ -4,27 +4,7 @@ session_start();
 <html>
 <head>
 	<title>DATABASES</title>
-	<!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
-	<style>
-		* {
-			padding: 0px;
-			margin: 0px;
-		}
-
-		.wrapper {
-			width: 600px;
-			margin: 0px auto;
-		}
-
-		.signup_box, .signin_box {
-			width: 200px;
-			display: inline-block;
-		}
-
-		input {
-			display: block;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="main.css">
 <body>
 	<div class='wrapper'>
 		<h1>Newsletter Sign-up</h1>

@@ -20,13 +20,23 @@ if ($connection->connect_errno)
 //used when expecting multiple results
 function fetch_all()
 {
+	$data = array();
+	global $connection;
+	$result = $connection->query($query);
 
+	while($row = mysqli_fetch_assoc($result))
+	{
+		$data[] = $row;
+	}
+	return $data;
 }
 
 //used when expecting a single result
-function fetch_record()
+function fetch_record($query)
 {
-
+	global $connection;
+	$result = $connection->query($query);
+	return mysqli_fetch_assoc($result);
 }
 
 //use to run INSERT/DELETE/UPDATE, queries that don't return a value
