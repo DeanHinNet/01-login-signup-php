@@ -1,0 +1,19 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.wrapper {
+	width: 600px;
+	margin: 0px auto;
+	background-color: #fff;
+}
+
+.signup_box, .signin_box {
+	width: 200px;
+	display: inline-block;
+}
+
+input {
+	display: block;
+}
