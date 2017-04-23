@@ -9,7 +9,7 @@ require('../credentials.php');
 // echo DB_DATABASE;
 
 //connect to database host
-$connection = new mysqli(GREEN_HOST, GREEN_USER, GREEN_PASS, GREEN_DATABASE);
+$connection = $connect_01;
 
 //make sure connection is good or die
 if ($connection->connect_errno)
@@ -18,7 +18,7 @@ if ($connection->connect_errno)
 }
 
 //used when expecting multiple results
-function fetch_all()
+function fetch_all($query)
 {
 	$data = array();
 	global $connection;
