@@ -29,6 +29,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'register')
 			if(empty($value))
 			{
 				$_SESSION['errors'][$name] = $name . ' cannot be blank!';
+				$_SESSION['reg_info'][$name] = "";
 			}
 			else
 			{
@@ -39,7 +40,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'register')
 						if(is_numeric($value))
 						{
 							$_SESSION['errors'][$name] = $name . ' cannot contain numbers.';
-							$_SESSION['reg_info'][$name] = '';
 						}
 						else
 						{
@@ -51,7 +51,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'register')
 						if(!filter_var($value, FILTER_VALIDATE_EMAIL))
 						{
 							$_SESSION['errors'][$name] = $name . ' is not a valid email.';
-							$_SESSION['reg_info'][$name] = '';
 						}
 						else
 						{
@@ -63,7 +62,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'register')
 						if(strlen($value) < 7)
 						{
 							$_SESSION['errors'][$name] = $name . ' must be greater than 7 characters.';
-							$_SESSION['reg_info'][$name] = '';
 						}
 						else
 						{
@@ -96,7 +94,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'register')
 		}
 		else
 		{
-			$query = "INSERT INTO users (first_name, last_name, email, password, created_at, updated_at, username) VALUES ('{$_POST['first_name']}', '{$_POST['last_name']}', '{$_POST['email']}', '{$_POST['password']}', NOW(), NOW()), {$_POST['username']}";
+			$query = "INSERT INTO users (first_name, last_name, email, password, created_at, updated_at, username) VALUES ('{$_POST['first_name']}', '{$_POST['last_name']}', '{$_POST['email']}', '{$_POST['password']}', NOW(), NOW(), '{$_POST['username']}')";
 			$_SESSION['user_id'] = run_mysql_query($query);
 			$_SESSION['first_name'] = $_POST['first_name'];
 			$_SESSION['success_message'] = 'You are now registered.';

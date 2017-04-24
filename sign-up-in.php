@@ -19,15 +19,9 @@ session_start();
 				{
 					foreach($_SESSION['errors'] as $key=>$value)
 					{
-						unset($_SESSION['reg_info'][$key]);
 						echo "<p class='errors'>" . $value . "</p>";
 					}
 					unset($_SESSION['errors']);
-					foreach($_SESSION['reg_info'] as $key=>$value)
-					{
-
-					}
-					var_dump($_SESSION);
 				}
 				else 
 				{
@@ -67,6 +61,9 @@ session_start();
 					<input type='submit' value='register'>
 				</section>
 			</form>
+			<?php
+			unset($_SESSION['reg_info']);
+			?>
 		</div>
 		<div class='signin_box'>
 			<h2>Sign In</h2>
